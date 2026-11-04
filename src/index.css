@@ -1,0 +1,178 @@
+
+@import "tailwindcss";
+
+/* Base settings */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --app-bg: #f8faf8;
+  --app-surface: #ffffff;
+  --app-surface-secondary: #f1f5f2;
+  --app-text: #17201c;
+  --app-text-muted: #64716a;
+  --app-border: #e2e8e4;
+  --app-input: #ffffff;
+}
+
+/* Light theme */
+html[data-theme="light"] {
+  color-scheme: light;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Dark theme */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --app-bg: #111916;
+  --app-surface: #1b2520;
+  --app-surface-secondary: #26322c;
+  --app-text: #edf4ef;
+  --app-text-muted: #a3b1a8;
+  --app-border: #35443b;
+  --app-input: #202c25;
+
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Global page styles */
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--app-text);
+  background: var(--app-bg);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Main application surfaces */
+.app-theme,
+.app-main,
+.app-content {
+  color: var(--app-text);
+  background-color: var(--app-bg);
+}
+
+.app-card {
+  color: var(--app-text);
+  background-color: var(--app-surface);
+  border-color: var(--app-border);
+}
+
+/* Form controls */
+input,
+select,
+textarea {
+  color: var(--app-text);
+  background-color: var(--app-input);
+  border-color: var(--app-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--app-text-muted);
+}
+
+/* Dark theme surface adjustments */
+html[data-theme="dark"] .app-theme,
+html[data-theme="dark"] .app-main,
+html[data-theme="dark"] .app-content,
+html[data-theme="dark"] body {
+  color: var(--app-text);
+  background-color: var(--app-bg);
+}
+
+html[data-theme="dark"] .app-card,
+html[data-theme="dark"] [class*="bg-white"] {
+  color: var(--app-text);
+  background-color: var(--app-surface);
+  border-color: var(--app-border);
+}
+
+html[data-theme="dark"] [class*="bg-gray-50"],
+html[data-theme="dark"] [class*="bg-gray-100"],
+html[data-theme="dark"] [class*="bg-slate-50"],
+html[data-theme="dark"] [class*="bg-slate-100"] {
+  background-color: var(--app-surface-secondary);
+}
+
+html[data-theme="dark"] [class*="text-gray-900"],
+html[data-theme="dark"] [class*="text-gray-800"],
+html[data-theme="dark"] [class*="text-gray-700"],
+html[data-theme="dark"] [class*="text-slate-900"],
+html[data-theme="dark"] [class*="text-slate-800"],
+html[data-theme="dark"] [class*="text-slate-700"] {
+  color: var(--app-text);
+}
+
+html[data-theme="dark"] [class*="text-gray-600"],
+html[data-theme="dark"] [class*="text-gray-500"],
+html[data-theme="dark"] [class*="text-slate-600"],
+html[data-theme="dark"] [class*="text-slate-500"] {
+  color: var(--app-text-muted);
+}
+
+html[data-theme="dark"] [class*="border-gray-"],
+html[data-theme="dark"] [class*="border-slate-"] {
+  border-color: var(--app-border);
+}
+
+/* Typography sizing */
+.app-content-scale {
+  font-size: 0.875rem;
+}
+
+.app-content-scale h1 {
+  font-size: 1.5rem;
+}
+
+.app-content-scale h2 {
+  font-size: 1.25rem;
+}
+
+.app-content-scale h3 {
+  font-size: 1rem;
+}
+
+.app-content-scale p,
+.app-content-scale label,
+.app-content-scale th,
+.app-content-scale td {
+  font-size: 0.875rem;
+}
+
+/* Smooth theme transition */
+.app-theme,
+.app-card,
+.app-main,
+.app-content {
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
